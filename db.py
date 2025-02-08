@@ -10,9 +10,11 @@ def add_new_acc(name, type, bal):
 
     # confirm that it's there
     find_statement = "SELECT * FROM accounts WHERE acc_name=? AND acc_type=?"
-    cur.execute(find_statement, (name, type)).fetchall()
+    result = cur.execute(find_statement, (name, type)).fetchall()
 
-    if len(cur.fetchall()) == 1:
+    cur.close()
+    con.close()
+
+    if len(result) == 1:
         return True
     return False
-    
