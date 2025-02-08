@@ -1,5 +1,4 @@
 from flask import Flask, request
-from db import add_new_acc
 import sqlite3
 
 app = Flask(__name__)
@@ -19,8 +18,6 @@ def create_account_post():
     name = request.form['name']
     acc_type = request.form['type']
     bal = request.form['bal']
-
-    print(name, acc_type, bal)
     
     con = sqlite3.connect("bisal.db")
     cur = con.cursor()
