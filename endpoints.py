@@ -1,4 +1,5 @@
 from flask import Flask, request
+from markupsafe import escape
 import sqlite3
 
 app = Flask(__name__)
@@ -37,3 +38,4 @@ def create_account_post():
         return {'message': f'account for {name} created', 'status': 'OK'}
     else:
         return {'message': 'something has gone wrong...', 'status': 400}
+
